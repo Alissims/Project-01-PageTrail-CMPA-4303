@@ -1,0 +1,232 @@
+/* ---------- Tokens ---------- */
+:root {
+  --ink: #232b23;
+  --ink-soft: #5b6459;
+  --paper: #f2ecdb;
+  --paper-line: rgba(35, 43, 35, 0.14);
+  --accent: #7a2e2e;
+  --want: #4d6b86;
+  --reading: #a8791e;
+  --read: #4b6b4e;
+
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "IBM Plex Sans", -apple-system, Segoe UI, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.site-header h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  max-width: 34ch;
+}
+
+/* ---------- Add-book form ---------- */
+.add-book {
+  border-top: 1px solid var(--paper-line);
+  padding-top: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.add-book h2 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+#book-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 160px;
+}
+
+.field-select { flex: 0 1 160px; }
+
+.field label {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--paper-line);
+  padding: 0.35rem 0.1rem;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+#book-form button {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--paper);
+  background: var(--accent);
+  border: none;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+}
+
+#book-form button:hover { background: #632424; }
+#book-form button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* ---------- Shelves ---------- */
+.shelf { margin-bottom: 2.25rem; }
+
+.shelf h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.count {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.book-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.book-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 0 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--paper-line);
+  border-left: 3px solid var(--status-color, var(--ink-soft));
+}
+
+.book-row .book-info { flex: 1 1 auto; min-width: 0; }
+
+.book-row .book-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.book-row .book-author {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.book-row .row-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.book-row select {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  background: transparent;
+  border: 1px solid var(--paper-line);
+  padding: 0.25rem 0.4rem;
+}
+
+.stars { display: flex; gap: 0.1rem; }
+
+.stars button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  line-height: 1;
+  padding: 0.1rem;
+  color: var(--ink-soft);
+}
+
+.stars button.filled { color: var(--reading); }
+.stars button:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.3rem;
+}
+
+.delete-btn:hover { color: var(--accent); }
+
+.empty {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0.4rem 0 0 0.2rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .site-header h1 { font-size: 2rem; }
+  #book-form { flex-direction: column; align-items: stretch; }
+  .field-select { flex-basis: auto; }
+  .book-row { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
