@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PageTrail — a private reading shelf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>PageTrail</h1>
+  <p class="tagline">A private shelf for what you're reading. No feed, no followers, no ratings but yours.</p>
+</header>
+
+<main>
+  <section class="add-book" aria-labelledby="add-book-heading">
+    <h2 id="add-book-heading">Add a book</h2>
+    <form id="book-form">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required placeholder="The Book of Delights">
+      </div>
+      <div class="field">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" required placeholder="Ross Gay">
+      </div>
+      <div class="field field-select">
+        <label for="status">Shelf</label>
+        <select id="status" name="status">
+          <option value="want">Want to read</option>
+          <option value="reading">Reading</option>
+          <option value="read">Read</option>
+        </select>
+      </div>
+      <button type="submit">Add to shelf</button>
+    </form>
+  </section>
+
+  <section class="shelf" data-status="want" aria-labelledby="want-heading">
+    <h2 id="want-heading">Want to read <span class="count" id="want-count">0</span></h2>
+    <ul class="book-list" id="want-list"></ul>
+    <p class="empty" id="want-empty">Nothing here yet — the first entry is up to you.</p>
+  </section>
+
+  <section class="shelf" data-status="reading" aria-labelledby="reading-heading">
+    <h2 id="reading-heading">Reading <span class="count" id="reading-count">0</span></h2>
+    <ul class="book-list" id="reading-list"></ul>
+    <p class="empty" id="reading-empty">Nothing in progress right now.</p>
+  </section>
+
+  <section class="shelf" data-status="read" aria-labelledby="read-heading">
+    <h2 id="read-heading">Read <span class="count" id="read-count">0</span></h2>
+    <ul class="book-list" id="read-list"></ul>
+    <p class="empty" id="read-empty">Finished books will collect here, rating included.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Everything above lives in this browser's storage — nothing is sent anywhere.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
